@@ -59,7 +59,10 @@ class App extends Component {
     }
 
     onToggleIncrease = (id) => {
-        console.log(`Increase this ${id}`);
+        this.setState(({data}) => {
+            const index = data.findIndex(elem => elem.id === id);
+            
+        })
     }
 
     onToggleLike = (id) => {
