@@ -13,9 +13,9 @@ class App extends Component {
         super(props);
         this.state = {
             data: [
-                {name: 'Osipov Sergei', salary: 5000, increase: false, id: 1},
-                {name: 'Fefelova Rimma', salary: 1200, increase: false, id: 2},
-                {name: 'Mantul Milena', salary: 3000, increase: false, id: 3}
+                {name: 'Osipov Sergei', salary: 5000, increase: false, like: true, id: 1},
+                {name: 'Fefelova Rimma', salary: 1200, increase: false, like: false, id: 2},
+                {name: 'Mantul Milena', salary: 3000, increase: false, like: false, id: 3}
             ]
         }
         this.maxId = 4;
@@ -45,6 +45,7 @@ class App extends Component {
                 name,
                 salary,
                 increase: false,
+                like: false,
                 id: this.maxId++
             }
             this.setState(({data}) => {

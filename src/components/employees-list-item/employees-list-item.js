@@ -2,10 +2,17 @@ import './employees-list-item.css';
 
 const EmployeesListItem = (props) => {
     
-        const {name, salary, onDelete, onToggleIncrease, onToggleLike} = props;
+        const {name, salary, onDelete, onToggleIncrease, onToggleLike, increase, like} = props;
 
         let classNames = "list-group-item d-flex justify-content-between";
-        
+        if (increase) {
+            classNames += ' increase';
+        }
+
+        if (like) {
+            classNames += ' like';
+        }
+
         return (
             <li className={classNames}>
                 <span className="list-group-item-label" onClick={onToggleLike}>{name}</span>
