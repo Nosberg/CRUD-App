@@ -61,19 +61,34 @@ class App extends Component {
     onToggleIncrease = (id) => {
         this.setState(({data}) => {
             const index = data.findIndex(elem => elem.id === id);
-            
+
+            const old = data[index];
+            const newItem = {...old, increase: !old.increase};
+            const newArr = [...data.slice(0, index), newItem, ...data.slice(index + 1)];
+            return {
+                data: newArr
+            }
         })
     }
 
     onToggleLike = (id) => {
-        console.log(`Like this ${id}`);
+        this.setState(({data}) => {
+            const index = data.findIndex(elem => elem.id === id);
+
+            const old = data[index];
+            const newItem = {...old, like: !old.like};
+            const newArr = [...data.slice(0, index), newItem, ...data.slice(index + 1)];
+            return {
+                data: newArr
+            }
+        })
     }
 
 
     render() {
         return (
             <div className="app">
-                <AppInfo/>
+                <AppInfo data={this.state.data}/>
                 <div className="search-panel">
                     <SearchPanel/>
                     <AppFilter/>
